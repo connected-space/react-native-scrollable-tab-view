@@ -25,7 +25,7 @@ the animations behind this work, check out the Rebound section of the
 ```javascript
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
-var App = createReactClass({
+var App = React.createClass({
   render() {
     return (
       <ScrollableTabView>
@@ -47,7 +47,7 @@ it into our `ScrollableTabView` like this:
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var CustomTabBar = require('./CustomTabBar');
 
-var App = createReactClass({
+var App = React.createClass({
   render() {
     return (
       <ScrollableTabView renderTabBar={() => <CustomTabBar someProp={'here'} />}>
@@ -60,28 +60,6 @@ var App = createReactClass({
 });
 ```
 To start you can just copy [DefaultTabBar](https://github.com/skv-headless/react-native-scrollable-tab-view/blob/master/DefaultTabBar.js).
-
-## Changing between tabs
-
-You can change tabs programmatically. Just use `goToPage` method.
-
-```javascript
-var App = createReactClass({
-  render() {
-    return <ScrollableTabView
-      renderTabBar={() => <DefaultTabBar />}
-      ref={(tabView) => { this.tabView = tabView; }}
-    >
-      <Text tabLabel='Tab #1'>My</Text>
-      <Text tabLabel='Tab #2'>favorite</Text>
-      <Text tabLabel='Tab #3'>project</Text>
-      <TouchableOpacity tabLabel='Back' onPress={() => this.tabView.goToPage(0)}>
-        <Text>Lets go back!</Text>
-      </TouchableOpacity>
-    </ScrollableTabView>;
-  },
-});
-```
 
 ## Examples
 
